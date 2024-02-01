@@ -1,7 +1,7 @@
 <div class="mat-app-background students-container">
   <app-student-list
     [students]="students"
-    (newStudent)="addStudent()"
+    (newStudent)="newStudent()"
     (studentDeleted)="deleteStudent($event)"
     (studentSelected)="selectStudent($event)"
   ></app-student-list>

@@ -51,12 +51,14 @@ export class AppComponent implements OnInit {
     this.selectedStudent = student;
   }
 
-  addStudent(): void {
+  newStudent(): void {
     this.selectedStudent = this.getStudentById(-1);
   }
 
   deleteStudent(student: Student): void {
     this.students.splice(this.students.findIndex((s) => student.id === s.id), 1);
+    if (this.selectedStudent.id === student.id)
+      this.newStudent()
   }
 
   saveStudent(student: Student): void {
@@ -64,7 +66,9 @@ export class AppComponent implements OnInit {
     if (isNew)
       student.id = this.getNextId();
     else
-      this.deleteStudent(student);
+      // remove and re-add, as instances may not be equal
+      //this.deleteStudent(student); // prevent unnecessary events
+      this.students.splice(this.students.findIndex((s) => student.id === s.id), 1);
 
     this.students.push(student);
     this.selectedStudent = student;
