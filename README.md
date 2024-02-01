@@ -21,7 +21,6 @@ ng_ver="17.1.1"
 vercel_ver="33.4.1"
 
 this_script="$( pwd )/$( basename $0 )"
-has_change=false
 
 . "$NVM_DIR/nvm.sh"
 nvm use ${nvm_ver}
