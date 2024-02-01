@@ -1,0 +1,6 @@
+.students-container {
+    margin: 10px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+}
